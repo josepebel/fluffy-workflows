@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  name-of-job:
+  job-checkout-and-ls:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -16,4 +16,5 @@ jobs:
         shell: bash
         run: |
           ls
+          cat ./README.md
       

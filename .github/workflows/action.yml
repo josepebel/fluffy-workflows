@@ -12,7 +12,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Hello world
+      - name: ls and cat
         shell: bash
         run: |
           ls

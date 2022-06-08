@@ -37,7 +37,7 @@ jobs:
         env:
           MY_SECRET: ${{ secrets.MY_SECRET }}
         run: |
-          chmod +x ./workflowsrepo/scripts/firstscript.sh
-          sh ./workflowsrepo/scripts/firstscript.sh
+          chmod +x ./workflowsrepo/scripts/myscript.sh
+          sh ./workflowsrepo/scripts/myscript.sh
           
       

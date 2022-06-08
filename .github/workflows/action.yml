@@ -48,9 +48,11 @@ jobs:
           sh ./workflowsrepo/scripts/myscript.sh
           
   install-java:   
+      needs: job-checkout-and-ls
       runs-on: ubuntu-latest
       steps:
-        - uses: actions/checkout@v3
+        - name: Check workspace
+          run: ls ${{ github.workspace}}
         - uses: actions/setup-java@v3
           with:
               distribution: 'temurin'
@@ -58,6 +60,8 @@ jobs:
               cache: 'maven'
         - name: Java version
           run: java -version
+        - name: Check workspace after java installation
+          run: ls ${{ github.workspace}}
         #- name: Build with Maven
         #  run: mvn -B package --file pom.xml
           

@@ -27,6 +27,8 @@ jobs:
           
       - name: ls and cat main repo
         shell: bash
+        env:
+          MY_SECRET: $ {{secrets.MY_SECRET}}
         run: |
           ls
           echo "Main repo ls"
@@ -34,7 +36,7 @@ jobs:
           echo "Workflow repo ls"
           ls ./workflowsrepo
           
-          
+        
           
       - name: echo secret
         shell: bash

@@ -1,7 +1,9 @@
 name: First workflow custom
 on:
   workflow_call:
- 
+     secrets:
+      MY_SECRET:
+        required: false
  # push:
   #  branches:
    #   - main
@@ -36,8 +38,6 @@ jobs:
           
       - name: echo secret
         shell: bash
-        env:
-          MY_SECRET: ${{ secrets.MY_SECRET }}
         run: |
           chmod +x ./workflowsrepo/scripts/myscript.sh
           sh ./workflowsrepo/scripts/myscript.sh

@@ -38,7 +38,6 @@ jobs:
           ls ${{ github.workspace}}/workflowsrepo
           
         
-          
       - name: echo secret
         shell: bash
         env:
@@ -47,5 +46,19 @@ jobs:
         run: |
           chmod +x ./workflowsrepo/scripts/myscript.sh
           sh ./workflowsrepo/scripts/myscript.sh
+          
+  install-java:   
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-java@v3
+          with:
+              distribution: 'temurin'
+              java-version: '11'
+              cache: 'maven'
+        - name: Java version
+          run: java -version
+        #- name: Build with Maven
+        #  run: mvn -B package --file pom.xml
           
       

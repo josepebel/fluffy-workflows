@@ -33,7 +33,7 @@ jobs:
           echo "Main repo ls"
           cat ./mainrepo/README.md
           echo "Workflow repo ls"
-          ls ./workflowsrepo
+          ls ${{ github.workspace}}/workflowsrepo
           
         
           

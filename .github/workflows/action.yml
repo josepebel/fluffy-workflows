@@ -30,8 +30,10 @@ jobs:
       
         run: |
           ls
-          echo "Main repo ls"
+          echo "cat main repo readme"
           cat ./mainrepo/README.md
+          echo "Maon repo ls"
+          ls ./workflowsrepo
           echo "Workflow repo ls"
           ls ${{ github.workspace}}/workflowsrepo
           

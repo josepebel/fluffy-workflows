@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo env.MY_SECRET
+echo "This is a secret $env.MY_SECRET"

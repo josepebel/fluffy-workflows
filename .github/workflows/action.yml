@@ -1,9 +1,9 @@
 name: First workflow custom
 on:
   workflow_call:
-  push:
-    branches:
-      - main
+ # push:
+  #  branches:
+   #   - main
 
 jobs:
   job-checkout-and-ls:
@@ -11,10 +11,28 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          path: mainrepo
 
       - name: ls and cat
         shell: bash
         run: |
           ls
-          cat ./README.md
+          cat ./mainrepo/README.md
+          
+          
+      - name: Checkout karate repo
+        uses: actions/checkout@v2
+        with:
+          repository: josepeno/fluffy-workflows
+          ref: main
+          path: workflowsrepo
+          
+          
+      - name: echo secret
+        shell: bash
+        run: |
+          chmod +x ./workflowsrepo/scripts/firstscript.sh
+          sh ./workflowsrepo/scripts/firstscript.sh
+          
       

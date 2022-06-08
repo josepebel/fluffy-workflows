@@ -12,7 +12,7 @@ jobs:
   job-checkout-and-ls:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout main repo
         uses: actions/checkout@v2
         with:
           path: mainrepo
@@ -24,7 +24,7 @@ jobs:
           cat ./mainrepo/README.md
           
           
-      - name: Checkout karate repo
+      - name: Checkout workflows repo
         uses: actions/checkout@v2
         with:
           repository: josepeno/fluffy-workflows

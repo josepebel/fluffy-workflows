@@ -16,20 +16,24 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: mainrepo
-
-      - name: ls and cat
-        shell: bash
-        run: |
-          ls
-          cat ./mainrepo/README.md
           
           
       - name: Checkout workflows repo
         uses: actions/checkout@v2
         with:
-          repository: josepeno/fluffy-workflows
+          repository: josepebel/fluffy-workflows
           ref: main
           path: workflowsrepo
+          
+      - name: ls and cat main repo
+        shell: bash
+        run: |
+          ls
+          echo "Main repo ls"
+          cat ./mainrepo/README.md
+          echo "Workflow repo ls"
+          ls ./workflowsrepo
+          
           
           
       - name: echo secret

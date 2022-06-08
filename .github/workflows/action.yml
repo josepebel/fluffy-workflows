@@ -40,10 +40,10 @@ jobs:
         
           
       - name: echo secret
+        shell: bash
         env:
           MY_SECRET: ${{ secrets.MY_SECRET }}
-        shell: bash
-   
+        
         run: |
           chmod +x ./workflowsrepo/scripts/myscript.sh
           sh ./workflowsrepo/scripts/myscript.sh

@@ -1,9 +1,7 @@
 name: First workflow custom
 on:
   workflow_call:
-    secrets:
-      MY_SECRET:
-        required: false
+ 
  # push:
   #  branches:
    #   - main

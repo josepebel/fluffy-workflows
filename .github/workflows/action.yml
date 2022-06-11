@@ -72,11 +72,17 @@ jobs:
             cd ./artifacts
             echo "Hi" > hi.txt
             cd ..
-            
+      - name: Check workspace after creation artifacts folder
+        run: |
+            ls ${{ github.workspace}}    
+            echo "---"
+            ls ${{ github.workspace}}/artifacts   
+        
+        
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: my-artifact
-          path: artifacts/
+          path: ${{ github.workspace}}/artifacts/
           
       

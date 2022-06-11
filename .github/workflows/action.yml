@@ -50,16 +50,33 @@ jobs:
 
       - name: Check workspace
         run: ls ${{ github.workspace}}
+        
       - uses: actions/setup-java@v3
         with:
             distribution: 'temurin'
             java-version: '11'
             cache: 'maven'
+            
       - name: Java version
         run: java -version
+        
       - name: Check workspace after java installation
         run: ls ${{ github.workspace}}
+        
       #- name: Build with Maven
       #  run: mvn -B package --file pom.xml
+      
+      - name: Create files to artifacts
+        run: |
+            mkdir artifacts
+            cd ./artifacts
+            echo "Hi" > hi.txt
+            cd ..
+            
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: .artifacts/
           
       

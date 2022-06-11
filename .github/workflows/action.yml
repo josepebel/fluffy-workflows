@@ -9,7 +9,7 @@ on:
    #   - main
 
 jobs:
-  job-checkout-and-ls:
+  job-checkout-ls-java-artifact:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main repo
@@ -85,4 +85,19 @@ jobs:
           name: my-artifact
           path: ./artifacts/
           
-      
+          
+  download-arifact:
+    runs-on: ubuntu-latest    
+    needs: job-checkout-ls-java-artifact
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: my-artifact
+          path: downloads
+      - name: Check workspace after downloads artifacts folder
+        run: |
+            ls ${{ github.workspace}}    
+            echo "---"
+            ls ${{ github.workspace}}/downloads   
+              

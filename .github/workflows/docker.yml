@@ -32,5 +32,5 @@ jobs:
           --health-retries 5
     steps:
       - name: Check content
-        run: postgres --version
+        run: ls ${{ github.workspace }}
 

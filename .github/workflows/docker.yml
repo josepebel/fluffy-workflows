@@ -14,5 +14,6 @@ jobs:
         with:
           path: mainrepo
       - name: check node version
-        run: node --version
-        run: npm --version
+        run: |
+            node --version
+            npm --version

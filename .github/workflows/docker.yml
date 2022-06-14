@@ -40,6 +40,6 @@ jobs:
         run: |
             psql --version
             ps -ef | grep postgres
-            psql -h /var/run/postgresql/ postgres
+            psql -h /var/run/postgresql postgres
             psql \dn
 

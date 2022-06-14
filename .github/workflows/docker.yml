@@ -41,5 +41,5 @@ jobs:
             psql --version
             ps -ef | grep postgres
             sudo find /tmp/ -name .s.PGSQL.5432
-            psql \dn
+
 

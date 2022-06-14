@@ -40,6 +40,7 @@ jobs:
         run: |
             psql --version
             ps -ef | grep postgres
+            psql -h $env.POSTGRES_HOST -U $env.POSTGRES_USER-$env.POSTGRES_DB
             psql \dn
 
 

@@ -33,6 +33,5 @@ jobs:
     steps:
       - name: Check content
         run: |
-            sudo -u postgres psql
-            SELECT version();
+            psql --version
 

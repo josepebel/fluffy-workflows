@@ -41,7 +41,7 @@ jobs:
       - name: Check content
         run: |
             psql --version
-            
-            psql -h localhost -U postgres PGPASSWORD=postgres -c '\dn'
+            psql postgresql://postgres:postgres@postgres:5432/postgres?sslmode=require
+            psql '\dn'
 
 

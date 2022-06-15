@@ -39,8 +39,8 @@ jobs:
       - name: Check content
         run: |
             psql --version
-            ps -ef | grep postgres
-            psql -h $env.POSTGRES_HOST -U $env.POSTGRES_USER-$env.POSTGRES_DB
+            psudo systemctl start postgresql.service
+            pg_isready
             psql \dn
 
 

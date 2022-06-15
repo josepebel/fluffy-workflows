@@ -24,10 +24,11 @@ jobs:
       postgres:
         image: postgres
         env:
-          POSTGRES_HOST:  ${{ job.services.postgres.ports[5432] }}
+          POSTGRES_HOST:  localhost
           POSTGRES_DB: postgres        
           POSTGRES_PASSWORD: postgres
           POSTGRES_USER: postgres
+          POSTGRES_PORT: 5432
         ports:
           - 5432:5432
         options: >-
@@ -39,8 +40,6 @@ jobs:
       - name: Check content
         run: |
             psql --version
-            psudo systemctl start postgresql.service
-            pg_isready
             psql \dn
 
 

@@ -42,6 +42,6 @@ jobs:
         run: |
             psql --version
             
-            psql -h localhost -U postgres -c '\dn'
+            psql -h localhost -U postgres PGPASSWORD=postgres -c '\dn'
 
 

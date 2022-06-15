@@ -42,6 +42,7 @@ jobs:
         run: |
             psql --version
             psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer
+            psql -c \dn
             
 
 

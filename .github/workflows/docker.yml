@@ -41,8 +41,8 @@ jobs:
       - name: Check content
         run: |
             psql --version
-            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer
-            psql -c '\dn'
+            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c '\dn'
+            
             
 
 

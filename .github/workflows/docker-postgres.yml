@@ -57,3 +57,7 @@ jobs:
       - name: Insert data
         run: |
             psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c '\i ./workflowsrepo/scripts/company.sql'
+            
+      - name: Check data
+        run: |
+            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c 'SELECT * FROM public.company'

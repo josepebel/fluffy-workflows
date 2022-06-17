@@ -52,5 +52,4 @@ jobs:
             
       - name: Check schemas
         run: |
-            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer 
-            psql -c '\dt'
+            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c '\dt'

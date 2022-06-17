@@ -50,6 +50,10 @@ jobs:
             chmod +x ./workflowsrepo/scripts/postgresScript.sh
             sh ./workflowsrepo/scripts/postgresScript.sh
             
-      - name: Check schemas
+      - name: Check tables
         run: |
             psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c '\dt'
+            
+      - name: Insert data
+        run: |
+            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c '\i ./workflowsrepo/scripts/company.sql'

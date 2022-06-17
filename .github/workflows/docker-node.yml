@@ -1,0 +1,17 @@
+name: Docker Workflow
+on:
+  workflow_call:
+   
+ 
+
+jobs:
+          
+  node-container:
+    runs-on: ubuntu-latest
+    container: node:16.15.1
+    steps:
+      - name: check node version
+        run: |
+            node --version
+            npm --version
+  

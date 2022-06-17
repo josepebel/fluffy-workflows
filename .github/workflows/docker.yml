@@ -7,19 +7,9 @@ on:
 jobs:
   checkout-repos:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout main repo
-        uses: actions/checkout@v2
-        with:
-          path: mainrepo
-      - name: Checkout workflows repo
-        uses: actions/checkout@v2
-        with:
-          repository: josepebel/fluffy-workflows
-          ref: main
-          path: workflowsrepo
+    
           
-  first-container:
+  node-container:
     runs-on: ubuntu-latest
     container: node:16.15.1
     steps:
@@ -27,8 +17,8 @@ jobs:
         run: |
             node --version
             npm --version
-  second-container:
-    needs: checkout-repos
+  postgres-container:
+  
     runs-on: ubuntu-latest
 
     services:
@@ -49,6 +39,16 @@ jobs:
           --health-retries 5
     # psql -h postgres -U postgres -c 'CREATE DATABASE ...'
     steps:
+      - name: Checkout main repo
+        uses: actions/checkout@v2
+        with:
+          path: mainrepo
+      - name: Checkout workflows repo
+        uses: actions/checkout@v2
+        with:
+          repository: josepebel/fluffy-workflows
+          ref: main
+          path: workflowsrepo
       - name: ls and cat main repo
         run: |
             ls

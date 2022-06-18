@@ -109,7 +109,9 @@ jobs:
             --username "postgres" \
             --verbose \
             -n "new_schema" \
+            -a \
             "./backups/public"
+            
       - name: Check schemas after restore and rename
         run: |
             psql --version

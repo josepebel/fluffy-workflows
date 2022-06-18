@@ -75,7 +75,19 @@ jobs:
       - name: Dump public schema
         run: |
             mkdir backups
-            psql -W "postgres" pg_dump -d "postgres" -h "localhost" -p "5432" -U "postgres" -n "public" -f "./backups/public.dmp"
+            PGSSLMODE=prefer PGPASSWORD=postgres winpty ./pg_dump \
+            --file "./backups/public.dmp" \
+            --host "localhost" \
+            --port "5432" \
+            --username "postgres! \
+            --verbose \
+            --format=c \
+            --no-owner \
+            --no-privileges \
+            --blobs \
+            --encoding "UTF8" \
+            --schema "public" \ \
+            "postgres"
             
 
       - name: ls and cat main repo

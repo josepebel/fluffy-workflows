@@ -99,7 +99,11 @@ jobs:
      
       - name: Restore backup in new schema
         run: |
-            pg_restore -d postgres -s ./backups/public.dmp
+            pg_restore -d postgres \
+            --host "localhost" \
+            --port "$POSTGRES_PORT" \
+            --username "postgres" \
+            -s ./backups/public.dmp
       - name: Check schemas after restore and rename
         run: |
             psql --version

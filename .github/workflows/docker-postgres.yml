@@ -95,7 +95,7 @@ jobs:
             
       - name: review backup
         run: |
-            cat ./backups/public.dmp
+            cat ./backups/public
       
 #       - name: Rename schema
 #         run: |

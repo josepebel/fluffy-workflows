@@ -1,4 +1,4 @@
-USE original_public;
+USE postgres.original_public;
 
 CREATE TABLE PEOPLE(
    ID INT PRIMARY KEY     NOT NULL,

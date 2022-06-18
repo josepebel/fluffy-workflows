@@ -80,7 +80,7 @@ jobs:
         run: |
             mkdir backups
             PGSSLMODE=prefer PGPASSWORD=$POSTGRES_PASSWORD pg_dump \
-            --file "./backups/public.dmp" \
+            --file "./backups/public" \
             --host "localhost" \
             --port "$POSTGRES_PORT" \
             --username "postgres" \

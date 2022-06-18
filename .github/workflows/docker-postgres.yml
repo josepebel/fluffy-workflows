@@ -79,14 +79,14 @@ jobs:
             --file "./backups/public.dmp" \
             --host "localhost" \
             --port "5432" \
-            --username "postgres! \
+            --username "postgres" \
             --verbose \
             --format=c \
             --no-owner \
             --no-privileges \
             --blobs \
             --encoding "UTF8" \
-            --schema "public" \ \
+            --schema "public" \
             "postgres"
             
 

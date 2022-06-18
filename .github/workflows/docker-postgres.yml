@@ -90,7 +90,7 @@ jobs:
             --no-privileges \
             --blobs \
             --encoding "UTF8" \
-            --schema "public" \
+            --n "public" \
             "postgres"
             
       - name: review backup

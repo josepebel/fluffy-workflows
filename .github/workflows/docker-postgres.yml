@@ -93,7 +93,18 @@ jobs:
             --schema "public" \
             "postgres"
             
-
+      - name: Rename schema
+        run: |
+            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c 'ALTER SCHEMA public RENAME TO public_rename;'
+     
+      - name: Restore backup in new schema
+        run: |
+            pg_restore -d postgres -s ./public.dmp
+      - name: Check schemas after restore and rename
+        run: |
+            psql --version
+            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c '\dn'
+            
       - name: ls and cat main repo
         run: |
             ls

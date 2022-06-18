@@ -1,3 +1,5 @@
+USE original_public;
+
 CREATE TABLE PEOPLE(
    ID INT PRIMARY KEY     NOT NULL,
    NAME           TEXT    NOT NULL,

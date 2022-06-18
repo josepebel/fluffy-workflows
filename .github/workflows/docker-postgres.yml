@@ -80,7 +80,7 @@ jobs:
         run: |
             mkdir backups
             PGSSLMODE=prefer PGPASSWORD=$POSTGRES_PASSWORD pg_dump \
-            --file "./backups/public" \
+            --file "./backups/public.sql" \
             --host "localhost" \
             --port "$POSTGRES_PORT" \
             --username "postgres" \
@@ -95,7 +95,7 @@ jobs:
             
       - name: review backup
         run: |
-            cat ./backups/public
+            cat ./backups/public.sql
       
 #       - name: Rename schema
 #         run: |
@@ -110,7 +110,7 @@ jobs:
             --verbose \
             -n "new_schema" \
             -a \
-            "./backups/public"
+            "./backups/public.sql"
             
       - name: Check schemas after restore and rename
         run: |

@@ -5,7 +5,7 @@ CREATE TABLE original_public.people(
    NAME           TEXT    NOT NULL,
    AGE            INT     NOT NULL);
    
-INSERT INTO people (id, name, age)
+INSERT INTO original_public.people (id, name, age)
 VALUES 
 (1, 'Jose', 29), 
 (2, 'Edu', 23);

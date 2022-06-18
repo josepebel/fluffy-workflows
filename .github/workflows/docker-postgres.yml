@@ -108,6 +108,7 @@ jobs:
             --port "$POSTGRES_PORT" \
             --username "postgres" \
             --verbose \
+            --no-owner
             -n "new_schema" \
             -a \
             "./backups/public.sql"

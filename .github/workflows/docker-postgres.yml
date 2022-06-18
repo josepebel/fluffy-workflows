@@ -103,6 +103,8 @@ jobs:
             --host "localhost" \
             --port "$POSTGRES_PORT" \
             --username "postgres" \
+            --verbose \
+            -n "public" \
             -s ./backups/public.dmp
       - name: Check schemas after restore and rename
         run: |

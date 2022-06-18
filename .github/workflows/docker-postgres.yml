@@ -75,7 +75,7 @@ jobs:
       - name: Dump public schema
         run: |
             mkdir backups
-            PGSSLMODE=prefer PGPASSWORD=$env.POSTGRES_PASSWORD pg_dump \
+            PGSSLMODE=prefer PGPASSWORD=$POSTGRES_PASSWORD pg_dump \
             --file "./backups/public.dmp" \
             --host "localhost" \
             --port "5432" \

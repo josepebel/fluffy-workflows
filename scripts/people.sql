@@ -3,7 +3,8 @@
 CREATE TABLE original_public.people(
    ID INT PRIMARY KEY     NOT NULL,
    NAME           TEXT    NOT NULL,
-   AGE            INT     NOT NULL);
+   AGE            INT     NOT NULL,
+   ACTIVE         BOOLEAN NOT NULL);
    
 INSERT INTO original_public.people (id, name, age, active)
 VALUES 

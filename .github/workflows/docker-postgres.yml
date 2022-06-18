@@ -76,7 +76,7 @@ jobs:
         run: |
             mkdir backups
          
-            pg_dump -d "postgres" -h "localhost" -p "5432" -U "postgres" -W "$env.POSTGRES_PASSWORD" -n "public" -f "./backups/public.dmp"
+            pg_dump -d "postgres" -h "localhost" -p "5432" -U "postgres" -w -n "public" -f "./backups/public.dmp"
 
       - name: ls and cat main repo
         run: |

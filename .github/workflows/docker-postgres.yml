@@ -117,7 +117,7 @@ jobs:
             psql --version
             psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c '\dn'
             
-      - name: Check data
+      - name: Check table
         run: |
             psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -n original_public -c '\dt'
             psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -n public -c '\dt'
@@ -126,6 +126,11 @@ jobs:
         run: |
             psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c 'SELECT * FROM public.company'
             psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c 'SELECT * FROM original_public.company'
+            
+      - name: Insert data
+        run: |
+            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c '\i ./workflowsrepo/scripts/people.sql'
+            
             
       - name: ls and cat main repo
         run: |

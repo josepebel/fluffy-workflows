@@ -104,7 +104,7 @@ jobs:
             --port "$POSTGRES_PORT" \
             --username "postgres" \
             --verbose \
-            -n "new_schema" \
+            -n "another_schema" \
             -s ./backups/public.dmp
       - name: Check schemas after restore and rename
         run: |
@@ -113,7 +113,7 @@ jobs:
             
       - name: Check data
         run: |
-            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c 'SELECT * FROM new_schema.company'
+            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c 'SELECT * FROM another_schema.company'
                psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c 'SELECT * FROM original_public.company'
             
       - name: ls and cat main repo

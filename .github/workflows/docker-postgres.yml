@@ -93,6 +93,10 @@ jobs:
             --schema "public" \
             "postgres"
             
+      - name: review backup
+        run: |
+            cat ./backups/public.dmp
+      
       - name: Rename schema
         run: |
             psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c 'ALTER SCHEMA public RENAME TO original_public;'
@@ -113,8 +117,12 @@ jobs:
             
       - name: Check data
         run: |
+            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c '\dt'
+         
+      - name: Check data
+        run: |
             psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c 'SELECT * FROM new_schema.company'
-               psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c 'SELECT * FROM original_public.company'
+            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c 'SELECT * FROM original_public.company'
             
       - name: ls and cat main repo
         run: |

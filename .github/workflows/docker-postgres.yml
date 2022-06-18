@@ -40,6 +40,7 @@ jobs:
       - name: ls and cat main repo
         run: |
             ls
+            
       - name: Check schemas
         run: |
             psql --version
@@ -61,3 +62,21 @@ jobs:
       - name: Check data
         run: |
             psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c 'SELECT * FROM public.company'
+            
+      - name: Create new schema
+        run: |
+             psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c 'CREATE SCHEMA new_schema AUTHORIZATION postgres;'
+             
+      - name: Check schemas again
+        run: |
+            psql --version
+            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c '\dn'
+            
+      - name: Dump public schema
+        run: |
+            pg_dump -d postgres -n public > ./backups/public.dmp
+            
+      - name: ls and cat main repo
+        run: |
+            ls
+     

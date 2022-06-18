@@ -104,7 +104,7 @@ jobs:
             --port "$POSTGRES_PORT" \
             --username "postgres" \
             --verbose \
-            -n "public" \
+            -n "new_schema" \
             -s ./backups/public.dmp
       - name: Check schemas after restore and rename
         run: |

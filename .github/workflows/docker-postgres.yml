@@ -75,7 +75,8 @@ jobs:
       - name: Dump public schema
         run: |
             mkdir backups
-            pg_dump -d postgres -s public > ./backups/public.dmp
+            pg_dump --help
+            pg_dump -d postgres -n public > ./backups/public.dmp
             
       - name: ls and cat main repo
         run: |

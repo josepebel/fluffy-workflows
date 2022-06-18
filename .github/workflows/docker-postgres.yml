@@ -98,18 +98,18 @@ jobs:
         run: |
             cat ./backups/public
       
-#       - name: Rename schema
-#         run: |
-#             psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c 'ALTER SCHEMA public RENAME TO original_public;'
-     
+      - name: Rename schema
+        run: |
+            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c 'ALTER SCHEMA public RENAME TO original_public;'
+            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c 'ALTER SCHEMA new_schema RENAME TO public;'
+
       - name: Restore backup in new schema
         run: |
             PGSSLMODE=prefer PGPASSWORD=$POSTGRES_PASSWORD pg_restore -d postgres \
             --host "localhost" \
             --port "$POSTGRES_PORT" \
             --username "postgres" \
-            -n "new_schema" \
-            --table "public.company" \
+            -n "public" \
             "./backups/public"
             
       - name: Check schemas after restore and rename

@@ -84,7 +84,7 @@ jobs:
             PGSSLMODE=prefer PGPASSWORD=$POSTGRES_PASSWORD pg_dump \
             --file "./backups/public.dmp" \
             --host "localhost" \
-            --port "5432" \
+            --port "$.jobs.postgres-container.sevices.postgres.env.POSTGRES_PORT" \
             --username "postgres" \
             --verbose \
             --format=c \

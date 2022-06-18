@@ -97,9 +97,9 @@ jobs:
         run: |
             cat ./backups/public.dmp
       
-      - name: Rename schema
-        run: |
-            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c 'ALTER SCHEMA public RENAME TO original_public;'
+#       - name: Rename schema
+#         run: |
+#             psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c 'ALTER SCHEMA public RENAME TO original_public;'
      
       - name: Restore backup in new schema
         run: |

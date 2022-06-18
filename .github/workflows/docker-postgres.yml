@@ -75,7 +75,7 @@ jobs:
       - name: Dump public schema
         run: |
             mkdir backups
-            pg_dump -W "postgres" -d "postgres" -h "localhost" -p "5432" -U "postgres" -n "public" -f "./backups/public.dmp"
+            psql -W "postgres" pg_dump -d "postgres" -h "localhost" -p "5432" -U "postgres" -n "public" -f "./backups/public.dmp"
             
 
       - name: ls and cat main repo

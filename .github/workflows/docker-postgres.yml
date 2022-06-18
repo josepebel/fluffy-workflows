@@ -132,8 +132,11 @@ jobs:
             psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c '\i ./workflowsrepo/scripts/people.sql'
       - name: Check table
         run: |
-            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -n original_public -c '\dt'
-            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -n public -c '\dt'
+            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c '\dt'
+            
+      - name: Check data
+        run: |
+            psql postgresql://postgres:postgres@localhost:5432/postgres?sslmode=prefer -c 'SELECT * FROM original_public.people'
             
       - name: ls and cat main repo
         run: |

@@ -90,7 +90,7 @@ jobs:
             --no-privileges \
             --blobs \
             --encoding "UTF8" \
-            --n "public" \
+            --schema "public" \
             "postgres"
             
       - name: review backup
@@ -109,8 +109,7 @@ jobs:
             --username "postgres" \
             --verbose \
             -n "new_schema" \
-            -c \
-            "./backups/public.dmp"
+            "./backups/public"
       - name: Check schemas after restore and rename
         run: |
             psql --version

@@ -99,7 +99,7 @@ jobs:
      
       - name: Restore backup in new schema
         run: |
-            pg_restore -d postgres \
+            PGSSLMODE=prefer PGPASSWORD=$POSTGRES_PASSWORD pg_restore -d postgres \
             --host "localhost" \
             --port "$POSTGRES_PORT" \
             --username "postgres" \

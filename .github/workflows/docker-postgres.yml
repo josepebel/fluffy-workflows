@@ -109,6 +109,7 @@ jobs:
             --port "$POSTGRES_PORT" \
             --username "postgres" \
             -n "new_schema" \
+            --table "public.company" \
             "./backups/public"
             
       - name: Check schemas after restore and rename

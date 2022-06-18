@@ -5,9 +5,14 @@ on:
 
 jobs:
  postgres-container:
-  
+    
     runs-on: ubuntu-latest
-
+    env:
+          POSTGRES_HOST:  localhost
+          POSTGRES_DB: postgres        
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PORT: 5432
     services:
       postgres:
         image: postgres

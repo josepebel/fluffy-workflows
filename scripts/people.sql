@@ -1,6 +1,6 @@
-USE postgres.original_public;
 
-CREATE TABLE PEOPLE(
+
+CREATE TABLE original_public.people(
    ID INT PRIMARY KEY     NOT NULL,
    NAME           TEXT    NOT NULL,
    AGE            INT     NOT NULL);

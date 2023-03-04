@@ -87,7 +87,7 @@ jobs:
           path: ./artifacts/
           
           
-  download-arifact:
+  download-artifact:
     runs-on: ubuntu-latest    
     needs: job-checkout-ls-java-artifact
     steps:
@@ -95,7 +95,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: my-artifact
-          path: downloads
+          path: ./downloads
       - name: Check workspace after downloads artifacts folder
         run: |
             ls ${{ github.workspace}}    
